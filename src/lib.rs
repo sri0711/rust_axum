@@ -7,7 +7,7 @@ use service::middlewares::common_middlewares::not_found_handler;
 
 pub async fn run() {
     let app = Router::new()
-        .nest("/api/", service::routes::user_route::user_routes().await)
+        .nest("/api", service::routes::user_route::user_routes().await)
         .route_layer(middleware::from_fn(
             service::middlewares::route_logger::simple_log,
         ))
