@@ -1,0 +1,29 @@
+name: Update Monorepo
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your main branch name if different
+
+jobs:
+  update-monorepo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Clone the Monorepo
+        run: |
+          git clone https://username:${{ secrets.MONOREPO_TOKEN }}@github.com/sri0711/rust_fullstack_webapp.git
+          cd combined-monorepo
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+
+      - name: Copy Backend Code
+        run: |
+          cp -r * ../combined-monorepo/backend/
+          cd ../combined-monorepo
+          git add backend
+          git commit -m "Update backend code from backend repository"
+          git push origin main  # Push to the monorepo
