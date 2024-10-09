@@ -15,7 +15,7 @@ jobs:
 
       - name: Clone the Monorepo
         run: |
-          git clone https://username:${{secrets.MONOREPO_TOKEN}}@github.com/sri0711/rust_fullstack_webapp.git
+          git clone https://sri0711:${{secrets.MONOREPO_TOKEN}}@github.com/sri0711/rust_fullstack_webapp.git
           cd rust_fullstack_webapp
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
