@@ -17,5 +17,11 @@ pub mod middlewares {
 
 // app level configurations
 pub mod app {
+    pub mod connection;
     pub mod responder;
+}
+
+// mongo db schema
+pub mod models {
+    pub mod user_model;
 }
