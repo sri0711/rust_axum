@@ -17,6 +17,7 @@ pub mod middlewares {
 
 // app level configurations
 pub mod app {
+    pub mod config;
     pub mod connection;
     pub mod responder;
 }

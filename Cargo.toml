@@ -10,3 +10,4 @@ colored = { version = "2.1.0" }
 serde = { version = "1.0.210", features = ["derive"] }
 serde_json = { version = "1.0.128" }
 mongodb = { version = "3.1.0" }
+dotenv = {version = "0.15.0"}
