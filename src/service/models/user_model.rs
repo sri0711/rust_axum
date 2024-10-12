@@ -2,9 +2,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct User {
-    id: Option<String>,
-    name: String,
-    age: i8,
-    email: Option<String>,
-    phone: String,
+    pub id: Option<String>,
+    pub name: String,
+    pub age: i8,
+    pub email: Option<String>,
+    pub phone: String,
 }

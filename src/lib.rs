@@ -4,8 +4,10 @@ pub mod service;
 // imports
 use axum::{middleware, Router};
 use service::middlewares::common_middlewares::not_found_handler;
+use dotenv::dotenv;
 
 pub async fn run() {
+    dotenv().ok();
     let app = Router::new()
         .nest("/api", service::routes::user_route::user_routes().await)
         .route_layer(middleware::from_fn(
