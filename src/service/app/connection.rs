@@ -5,7 +5,7 @@ use models::user_model;
 
 
 pub struct Database {
-    users: Collection<user_model::User>
+    pub users: Collection<user_model::User>
 }
 
 impl Database {
