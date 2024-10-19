@@ -1,6 +1,7 @@
 // service level routes
 pub mod routes {
     pub mod user_route;
+    pub mod authentication_route;
 }
 
 // service level controllers
