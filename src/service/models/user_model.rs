@@ -7,4 +7,5 @@ pub struct User {
     pub age: i8,
     pub email: Option<String>,
     pub phone: String,
+    pub password: String
 }

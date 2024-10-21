@@ -7,6 +7,7 @@ pub mod routes {
 // service level controllers
 pub mod controllers {
     pub mod user_controller;
+    pub mod authentication_controller;
 }
 
 // service middlewares

@@ -9,6 +9,7 @@ use dotenv::dotenv;
 
 pub async fn run() {
     dotenv().ok();
+    service::app::connection::Database::init().await;
     let merged_routes = user_route::user_routes().await.merge(authentication_route::authentication_routes().await);
     let app = Router::new()
         .nest("/api", merged_routes)

@@ -1,11 +1,12 @@
 // use axum::extract::Json;
 use futures_util::TryStreamExt;
+use serde_json::Value;
 use crate::service;
 use service::app::{connection::Database, responder::ApiResponse};
 use service::models::user_model::User;
 
 
-pub async fn user_list() -> ApiResponse<String> {
+pub async fn user_list() -> ApiResponse<Value> {
     let database = Database::init();
     let users = match database.await.users.find(Default::default()).await {
         Ok(c) => c,
@@ -31,7 +32,7 @@ pub async fn user_list() -> ApiResponse<String> {
             };
         }
     };
-    let result = match serde_json::to_string(&user_vec) {
+    let result = match serde_json::to_value(&user_vec) {
         Ok(u) => u,
         Err(e) => {
             println!("Error while parse users: {:?}", e);
@@ -59,13 +60,14 @@ pub async fn create_user() -> ApiResponse<String> {
         name: "sathish".to_string(),
         age: 27,
         phone: "7904739162".to_string(),
-            email: Some("m.sathish@gmail.com".to_string()),
+        email: Some("m.sathish@gmail.com".to_string()),
+        password: "sathish".to_string()
     };
     let res = database.await.users.insert_one(new_user).await;
     println!("{:?}", res);
     ApiResponse {
         success: true,
-        message: "user_list".to_string(),
+        message: "user created Successfully".to_string(),
         data: None,
         status: Some(201),
     }
