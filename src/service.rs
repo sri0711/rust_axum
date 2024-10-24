@@ -28,3 +28,8 @@ pub mod app {
 pub mod models {
     pub mod user_model;
 }
+
+pub mod helpers {
+    pub mod jwt_helper;
+    pub mod utils;
+}
