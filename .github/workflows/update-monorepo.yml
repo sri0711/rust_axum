@@ -26,6 +26,8 @@ jobs:
           git clone https://sri0711:${{secrets.MONOREPO_TOKEN}}@github.com/sri0711/rust_axum.git
           cd rust_axum
           rm -fr .git
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
           git add .
           git commit -m "Update backend code from backend repository"
           git push origin main  # Push to the monorepo
