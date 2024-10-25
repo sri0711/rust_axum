@@ -22,6 +22,7 @@ jobs:
 
       - name: Copy Backend Code
         run: |
+          ls
           cp -r * ../rust_fullstack_webapp/rust_axum
           cd ../rust_fullstack_webapp
           git add backend
