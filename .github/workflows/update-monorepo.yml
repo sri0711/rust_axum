@@ -22,9 +22,10 @@ jobs:
 
       - name: Copy Backend Code
         run: |
-          ls
-          cp -r * ./rust_fullstack_webapp/rust_axum
-          cd ../rust_fullstack_webapp
+          rm -fr rust_axum
+          git clone https://sri0711:${{secrets.MONOREPO_TOKEN}}@github.com/sri0711/rust_axum.git
+          cd rust_axum
+          rm -fr .git
           git add .
           git commit -m "Update backend code from backend repository"
           git push origin main  # Push to the monorepo
