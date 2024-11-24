@@ -1,6 +1,3 @@
-use sample_api::run;
+fn main () {
 
-#[tokio::main]
-async fn main() {
-    run().await;
 }
